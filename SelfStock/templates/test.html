@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+    <p id="p1"></p>
+    <script>
+        var xhr = new XMLHttpRequest(),
+        method = "GET",
+        url = "https://www.csdn.net";
+ 
+        xhr.open(method, url, true);
+        xhr.onreadystatechange = function () {
+            if(xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200){
+                console.log(xhr.responseText);
+                document.getElementById("p1").innerHTML = xhr.responseText;
+            }
+        };
+        xhr.send();    
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>self stock</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="/static/main.css" />
+    <script src="/static/main.js"></script>
+</head>
+<body onload="initStocks()">
+    <h1 id="h1Title" style="text-align:center">SELF STOCK</h1>
+    <div class="container">
+        <table id="tblStocks">
+            <tr>
+            <th>股票</th>
+            <th>代码</th>
+            <th>最新价</th>
+            <th>涨跌幅</th>
+            </tr>
+            <tr>
+            <td>上证</td>
+            <td>000001</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>深证</td>
+            <td>399001</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+            <tr>
+            <td>创业板</td>
+            <td>399006</td>
+            <td>0</td>
+            <td>0</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="searcher">
+        <br />
+        <input type="text" name="stock-search-text" oninput="parseInput()" />
+        <button type="button" onclick="addStock(event)">添加</button>
+        <br />
+        <table id="tblSearch" >
+        </table>
+    </div>
+</body>
+</html>

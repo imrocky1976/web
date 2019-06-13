@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>socket.io</title>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+<div></div>
+<p id="demo">news: hello </p>
+<script type="text/javascript">
+    var socket = io("ws://127.0.0.1:7000"); //通过ip和端口建立一个socket client
+        socket.on('connect', function(){
+            console.log('connect a socket client');
+        });
+
+        socket.on('news', function (data){
+            console.log(data);
+            document.getElementById("demo").innerHTML += data.hello;
+        });
+    
+        socket.emit('anotherNews', {title: 'hello world'});
+</script>
+</body>
+</html>

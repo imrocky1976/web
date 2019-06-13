@@ -1,0 +1,11 @@
+Flask==1.0.2
+Flask-Bootstrap==3.3.7.1
+Flask-Moment==0.6.0
+Flask-RESTful==0.3.6
+Flask-Script==2.0.6
+Flask-SocketIO==3.0.1
+Flask-SQLAlchemy==2.3.2
+Flask-WTF==0.14.2
+SQLAlchemy==1.2.10
+Werkzeug==0.14.1
+WTForms==2.2.1

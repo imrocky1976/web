@@ -1,0 +1,1 @@
+web: uwsgi --http-socket :8000 --plugin python3 --wsgi-file weblog.py --callable app --processes 4 --enable-threads

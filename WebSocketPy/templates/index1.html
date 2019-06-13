@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>socket.io</title>
+    <script type="text/javascript" src="/static/socket.io.js"></script>
+</head>
+<body>
+<h1>日期显示器</h1>
+<p id="time">show time here</p>
+<p id="res">res: </p>
+<p id="connstate">con: </p>
+<button id="ctlbtn" type="button" onclick="startRecv()">开始</button>
+<script type="text/javascript">
+    
+    var socket = io("ws://127.0.0.1:7000/showtime"); //通过ip和端口建立一个socket client
+
+    var started = false;
+        
+    socket.on('connect', function(){
+        console.log('connect a socket client');
+
+    });
+
+    socket.on('my response', function (data){
+        console.log(data);
+        document.getElementById("connstate").innerHTML = data.data;
+        // socket.emit('showtime');
+    });
+
+    socket.on('disconnect', function (data) {
+        document.getElementById("connstate").innerHTML = "disconnected";
+    });
+
+    function startRecv() {
+        if (!started) {
+            socket.connect();
+
+            socket.on('curtime', function (data){
+                console.log(data);
+                document.getElementById("time").innerHTML = data.date + ' ' + data.time;
+            });
+
+            document.getElementById("res").innerHTML = '接收服务器数据...';
+            socket.emit('showtime');
+            document.getElementById("ctlbtn").innerHTML = '停止';
+            started = true;
+        } else {
+            //socket.emit('stopshowtime');
+            document.getElementById("ctlbtn").innerHTML = '开始';
+            document.getElementById("res").innerHTML = '已停止接收服务器数据';
+            started = false;
+            socket.close();
+        }
+        
+    }
+
+</script>
+</body>
+</html>

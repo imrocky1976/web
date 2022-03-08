@@ -1,5 +1,5 @@
 -r common.txt
 coverage==4.5.1
 Faker==0.9.1
-httpie==0.9.9
+httpie==3.1.0
 selenium==3.14.1
